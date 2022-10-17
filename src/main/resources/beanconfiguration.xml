@@ -1,0 +1,72 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- Setter Injection -->
+    <bean id="setterInjectionBean" class="com.ngcb.javabeans.EmployeeBeans">
+        <property name="empId" value="101"/>
+        <property name="empName" value="AGS"/>
+        <property name="phoneNumber" value="1234567890"/>
+        <property name="address" value="#4 Pune"/>
+        <property name="paid" value="true"/>
+        <property name="dept" value="NGCB"/>
+    </bean>
+
+    <!-- Constructor Injection -->
+    <bean id="employeeConstructorInjectionBeanObj" class="com.ngcb.javabeans.EmployeeBeans">
+        <constructor-arg name="empId" value="102"/>
+        <constructor-arg name="empName" value="Ravi"/>
+        <constructor-arg name="phoneNumber" value="0987654321"/>
+        <constructor-arg name="address" value="#4 Pune"/>
+        <constructor-arg name="paid" value="true"/>
+        <constructor-arg name="dept" value="NGCB"/>
+    </bean>
+    <!-- Bean Injection -->
+    <bean id="beanInjection" class="com.ngcb.javabeans.ManagerBeans">
+        <property name="empId" value="100"/>
+        <property name="empName" value="Aakash"/>
+        <property name="phoneNumber" value="1234567890"/>
+        <property name="address" value="#4 Pune"/>
+        <property name="paid" value="true"/>
+        <property name="dept" value="NGCB"/>
+        <property name="empBean" ref="setterInjectionBean"/>
+    </bean>
+
+    <!-- List in Beans -->
+    <bean id="question" class="com.ngcb.javabeans.Question">
+        <property name="id" value="100"/>
+        <property name="Question">
+            <list>
+                <value>What is your PET name</value>
+                <value>What is your Place of Birth</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Sets in Beans -->
+    <bean id="shop" class="com.ngcb.javabeans.Shop">
+        <property name="shopId" value="100"/>
+        <property name="type" value="Fruits"/>
+        <property name="products">
+            <set>
+                <value>Apple</value>
+                <value>Banana</value>
+                <value>JackFruit</value>
+            </set>
+        </property>
+    </bean>
+
+    <!-- Maps in Beans -->
+    <bean id="addressBook" class="com.ngcb.javabeans.AddressBook">
+        <property name="addressId" value="100"/>
+        <property name="details">
+            <map>
+                <entry key="Name" value="AGS"/>
+                <entry key="Phone Number" value="1234567890"/>
+                <entry key="Address" value="#4 GeraCommerce Pune"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
